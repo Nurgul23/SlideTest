@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .main{
+      position: relative;
+      width: 800px;
+      height: 450px;
+      margin:40px auto;
+      border: 1px solid black;
+      overflow: hidden;
+    }
+    #one
+    {
+      width: 4000px;
+      height: 450px;
+      position: absolute;
+      float: left;
+      transition: left 1s;
+
+    }
+    #two
+    {
+      width: 4000px;
+      height: 450px;
+      position: absolute;
+      float: left;
+      transition: left 1s;
+
+    }
+    #one img{
+      width: 800px;
+      height: 450px;
+      float: left;
+    }
+    #two img{
+      width: 800px;
+      height: 450px;
+      float: left;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="main" onclick="clickToLeft()">
+      <div id="one">
+<img src="http://goo.gl/XF2eM3" alt="" />
+<img src="https://goo.gl/wfzgO8" alt="" />
+<img src="http://goo.gl/pU8OfY" alt="" />
+<img src="https://goo.gl/hKI4YR" alt="" />
+<img src="http://goo.gl/IAc2lp" alt="" />
+      </div>
+      <div id="two">
+        <img src="http://goo.gl/9MSkpk" alt="" />
+        <img src="http://goo.gl/uAEzh7" alt="" />
+        <img src="http://goo.gl/ymvWo6" alt="" />
+        <img src="http://goo.gl/pqiJ1L" alt="" />
+        <img src="http://goo.gl/SNgANU" alt="" />
+      </div>
+    </div>
+<button type="button" name="button" onclick="clickToLeft()">Right</button>
+<button type="button" name="button" onclick="clicktoright()">Left</button>
+
+<!--my scripts  -->
+<script type="text/javascript">
+var one=document.getElementById("one").style;
+var two=document.getElementById("two").style;
+var leftclick=0;
+var rightclick=0;
+var duration;
+function myf() {
+  duration=true;
+}
+setInterval(myf,500)
+
+// *******************
+// function for click, to left side
+// *******************
+var onemargin=-4000;
+var twomargin=0;
+one.left=""+onemargin+"px";
+two.left=""+twomargin+"px";
+
+function clickToLeft() {
+
+
+
+if (duration==true) {
+
+
+   if (leftclick==0) {
+     onemargin+=800;
+     twomargin+=800;
+     console.log(twomargin)
+    // one.left="-3200px";
+    // two.left="800px";
+    leftclick++;
+  }
+  else if (leftclick==1) {
+    one.left="-2400px";
+    two.left="1600px";
+    leftclick++;
+  }
+  else if (leftclick==2) {
+      two.transition="none"
+    one.left="-1600px";
+    two.left="-4000px";
+    leftclick++;
+  }
+  else if (leftclick==3) {
+    one.left="-800px";
+    leftclick++;
+  }
+  else if (leftclick==4) {
+    one.left="0px";
+    leftclick++;
+  }
+  else if (leftclick==5) {
+    two.transition="left 1s";
+    one.left="800px";
+    two.left="-3200px";
+    leftclick++;
+  }
+  else if (leftclick==6) {
+    one.left="1600px";
+    two.left="-2400px";
+    leftclick++;
+  }
+  else if (leftclick==7) {
+    one.transition="none";
+    one.left="-4000px"
+    two.left="-1600px";
+    leftclick++;
+  }
+  else if (leftclick==8) {
+    one.transition="left 1s"
+    two.left="-800px";
+    leftclick++;
+  }
+  else if (leftclick==9) {
+    two.left="0px";
+        leftclick=0;
+  }
+
+
+}
+duration=false;
+}
+
+// ********************
+// fun cton for click ,to right side
+// ***********************
+
+
+
+</script>
+
+  </body>
+</html>

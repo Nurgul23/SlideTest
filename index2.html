@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #one
+      {
+        width: 800px;
+        height: 500px;
+        position: absolute;
+        float: left;
+        left:-800px;
+        transition: left 1s;
+      background-size: cover;
+      }
+      #two
+      {
+        width: 800px;
+        height: 500px;
+        position: absolute;
+        float: left;
+        left:0px;
+        transition: left 1s;
+        background-image: url(http://goo.gl/XF2eM3);
+          background-size: cover;
+      }
+      #three
+      {
+        width: 800px;
+        height: 500px;
+        position: absolute;
+        float: left;
+        left:800px;
+        transition: left 1s;
+        background-size: cover;
+      }
+button{
+  position: absolute;
+  top:0;
+width: 100px;
+height: 40px;
+left:0;
+}
+.main{
+  position: relative;
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  overflow: hidden;
+}
+    </style>
+  </head>
+  <body>
+    <div class="main">
+
+
+<div id="one">
+  one
+</div>
+<div id="two">
+  two
+</div>
+<div id="three">
+  three
+</div>
+
+    </div>
+<button type="button" name="button" onclick="myf()">Click</button>
+
+
+<script type="text/javascript">
+var one = document.getElementById("one").style;
+var two = document.getElementById("two").style;
+var three = document.getElementById("three").style;
+var x=0;
+var duration;
+var arrimg=["http://goo.gl/XF2eM3","http://goo.gl/kFVhMM","http://goo.gl/pU8OfY","http://goo.gl/9MSkpk","http://goo.gl/uAEzh7"]
+var index=0;
+   function myduration() {
+     duration=true;
+   }
+
+  setInterval(myduration,1300);
+
+function myf() {
+
+if (duration==true) {
+
+
+  if (x==0) {
+
+    one.transition="left 1s"
+    one.left="0px";
+    two.left="800px";
+    three.transition="left 0s";
+    three.left="-800px";
+    one.zIndex=1;
+    two.zIndex=1;
+    x++;
+if (index >= arrimg.length-1) {
+  index=0;
+}
+
+  one.backgroundImage="url("+arrimg[index+1]+")";
+
+index++;
+console.log(index)
+  }
+  else if(x==1) {
+
+    if (index>=arrimg.length-1) {
+      index=0;
+    }
+
+
+
+    three.backgroundImage="url("+arrimg[index+1]+")";
+     index++;
+         console.log(index)
+
+three.transition="left 1s";
+three.left="0px";
+one.left="800px"
+two.transition="left 0s";
+one.zIndex=1;
+two.zIndex=0;
+three.zIndex=1;
+two.left="-800px"
+x++;
+
+
+
+
+  }
+  else if (x==2) {
+    if (index >= arrimg.length-1) {
+      index=0;
+    }
+    two.backgroundImage="url("+arrimg[index+1]+")";
+
+     index++;
+         console.log(index)
+    one.transition="left 0s";
+    two.zIndex=1;
+    three.zIndex=1;
+    one.left="-800px";
+    two.transition="left 1s";
+    two.left="0px";
+    three.left="800px";
+    x=0;
+  }
+duration=false;
+}
+}
+</script>
+  </body>
+</html>
